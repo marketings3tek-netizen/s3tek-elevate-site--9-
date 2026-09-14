@@ -1117,8 +1117,3 @@ nav a span,
 nav a em {
   display: none !important;
 }
-/* --- Global Page Background Consistency --- */
-body, html {
-  background-color: #0c0c0e !important;
-  color: #f1f1f3;
-}
