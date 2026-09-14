@@ -1104,3 +1104,16 @@ footer {
     height: 65dvh !important;
   }
 }
+/* --- Navbar Central Fix: Logo Only, Proportional Size --- */
+nav a img {
+  height: 28px !important;
+  max-height: 28px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+/* Hide the duplicate company text element next to the logo */
+nav a span,
+nav a em {
+  display: none !important;
+}
