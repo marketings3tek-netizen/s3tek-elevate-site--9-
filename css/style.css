@@ -1106,8 +1106,8 @@ footer {
 }
 /* --- Navbar Central Fix: Logo Only, Proportional Size --- */
 nav a img {
-  height: 28px !important;
-  max-height: 28px !important;
+  height: 36px !important;
+  max-height: 36px !important;
   width: auto !important;
   display: block !important;
 }
