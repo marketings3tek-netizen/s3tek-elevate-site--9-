@@ -1117,3 +1117,61 @@ nav a span,
 nav a em {
   display: none !important;
 }
+/* Masterpiece Easel & Stand Styling for PC and Mobile */
+.masterpiece-easel-stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+.easel-stand-frame {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  background: #141210;
+  border: 2px solid rgba(180, 120, 80, 0.35);
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 2px 6px rgba(255, 255, 255, 0.05);
+  transform-style: preserve-3d;
+  transform: rotateX(4deg) rotateY(-3deg);
+  transition: transform 0.6s ease-out;
+}
+
+.easel-stand-frame:hover {
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+/* Stand Legs Base Accent */
+.easel-legs-base {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 24px;
+  background: linear-gradient(to bottom, #1a1410, #050505);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top: 1px solid rgba(180, 120, 80, 0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+
+/* Mobile Adjustments to Prevent Clipping */
+@media (max-width: 768px) {
+  .masterpiece-easel-stage {
+    perspective: 800px;
+    padding: 1rem 0.5px;
+  }
+  .easel-stand-frame {
+    padding: 1.5rem 1rem;
+    transform: rotateX(2deg) rotateY(-1deg) scale(0.95);
+    width: 95%;
+  }
+}
