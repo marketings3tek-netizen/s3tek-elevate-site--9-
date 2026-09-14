@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Client Portal | S3tek Elevate</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portal-legacy.css">
+</head>
+<body>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="portal-shell">
+  <aside class="portal-side">
+    <div class="nav__brand"><img src="images/logo.png" alt="" class="nav__logo-img"><span class="nav__mark" style="color:#fff">S3TEK <span>ELEVATE</span></span></div>
+    <div class="portal-tab active" data-view="overview">📊 Overview</div>
+    <div class="portal-tab" data-view="messages">💬 Messages</div>
+    <div class="portal-tab" data-view="goals">✅ Weekly Goals</div>
+    <div class="portal-tab" data-view="tensor">🧭 Brand Tensor</div>
+    <div class="spacer"></div>
+    <a href="index.html" class="portal-tab" style="color:rgba(236,232,245,.6)">← Back to site</a>
+    <div class="logout" id="logout-btn" style="cursor:pointer">Log out</div>
+  </aside>
+
+  <main class="portal-main">
+
+    <!-- OVERVIEW -->
+    <section class="portal-view active" id="view-overview">
+      <div class="portal-head">
+        <div><h1>Welcome back, <span id="client-name">—</span></h1><p>Here's where your account stands right now.</p></div>
+      </div>
+      <div class="demo-banner" id="overview-banner">Showing demo data. Connect your Google Search Console, GA4, and Meta accounts below to see live numbers here.</div>
+
+      <div class="metric-grid">
+        <div class="metric-card" id="card-gsc">
+          <div class="src"><span>Google Search Console</span><span class="dot"></span></div>
+          <div class="val">—</div>
+          <div class="lbl">Not connected</div>
+          <a href="#" class="connect-btn" data-gsc>Connect Search Console →</a>
+        </div>
+        <div class="metric-card" id="card-ga4">
+          <div class="src"><span>Google Analytics 4</span><span class="dot"></span></div>
+          <div class="val">—</div>
+          <div class="lbl">Not connected</div>
+          <a href="#" class="connect-btn" data-ga4>Connect GA4 →</a>
+        </div>
+        <div class="metric-card" id="card-meta">
+          <div class="src"><span>Meta Ads</span><span class="dot"></span></div>
+          <div class="val">—</div>
+          <div class="lbl">Not connected</div>
+          <a href="#" class="connect-btn" data-meta>Connect Meta Ads →</a>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Website clicks from Search — last 8 weeks (demo data)</h3>
+        <div class="bars" id="demo-bars"></div>
+      </div>
+      <div class="chart-card">
+        <h3>What's on your account this month</h3>
+        <p style="color:var(--muted);font-size:14px;line-height:1.7">Real-time GSC / GA4 / Meta widgets appear here once each account is connected by your strategist (needs a one-time Google/Meta sign-in — see <em>PORTAL_SETUP.md</em> for what this takes to switch on). Until then, use <strong>Messages</strong> to ask us for a manual report anytime.</p>
+      </div>
+    </section>
+
+    <!-- MESSAGES -->
+    <section class="portal-view" id="view-messages">
+      <div class="portal-head"><div><h1>Messages</h1><p>Straight line to your strategist — no ticket queue.</p></div></div>
+      <div class="msg-thread" id="msg-thread">
+        <div class="msg them">Hey! Drop any question here — pricing, timelines, a quick "why did this happen" — we check this daily.<span class="meta">S3tek Elevate</span></div>
+      </div>
+      <form class="msg-form" id="msg-form">
+        <textarea id="msg-text" placeholder="Type a message…" required></textarea>
+        <button type="submit" class="btn btn--solid">Send</button>
+      </form>
+      <p class="form__status" id="msg-status" role="status"></p>
+    </section>
+
+    <!-- WEEKLY GOALS -->
+    <section class="portal-view" id="view-goals">
+      <div class="portal-head"><div><h1>Weekly Micro-Goals</h1><p>Small, specific targets for this week — set together with your strategist.</p></div></div>
+      <div id="goal-list"></div>
+      <form class="goal-add" id="goal-add-form">
+        <input type="text" id="goal-text" placeholder="Add a goal for this week…" required>
+        <button type="submit" class="btn btn--ghost">Add</button>
+      </form>
+      <p class="form__status" id="goal-status" role="status"></p>
+    </section>
+
+    <!-- BRAND TENSOR -->
+    <section class="portal-view" id="view-tensor">
+      <div class="portal-head"><div><h1>Brand Tensor</h1><p>Our AI positioning-gap scorer — compares what you say your brand is against what's actually live.</p></div></div>
+      <div class="bt-form">
+        <p style="color:var(--muted);font-size:13.5px;line-height:1.6">Describe how you'd position your brand in your own words, add your live links, and Brand Tensor scores the gap across Sense (message), Structure (identity &amp; site), and Surface (social &amp; local presence). Instagram/Facebook are logged for manual review — automated scraping of those platforms is unreliable, so the automated score leans on your website and Google Business Profile.</p>
+        <label>How would you describe your brand's positioning?</label>
+        <textarea id="bt-desc" placeholder="e.g. We're the premium, no-shortcuts concrete supplier for contractors who've been burned by cheap mixes before."></textarea>
+        <label>Website URL</label>
+        <input type="url" id="bt-website" placeholder="https://yourbrand.com">
+        <label>Google Business Profile link</label>
+        <input type="url" id="bt-gbp" placeholder="https://g.page/...">
+        <label>Instagram URL</label>
+        <input type="url" id="bt-ig" placeholder="https://instagram.com/yourbrand">
+        <label>Facebook URL</label>
+        <input type="url" id="bt-fb" placeholder="https://facebook.com/yourbrand">
+        <button type="button" class="btn btn--solid" id="bt-run" style="margin-top:22px">Run Brand Tensor →</button>
+        <p class="form__status" id="bt-status" role="status"></p>
+      </div>
+      <div class="bt-result" id="bt-result" style="display:none"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="portal-legacy.js"></script>
+<script src="portal.js"></script>
+</body>
+</html>

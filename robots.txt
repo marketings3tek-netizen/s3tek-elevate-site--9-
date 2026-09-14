@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /portal.html
+Disallow: /portal-login.html
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://elevate.s3tekcorp.in/sitemap.xml
