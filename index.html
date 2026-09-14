@@ -394,15 +394,14 @@ const FOG_COLOR = 0x140f09;
 scene.fog = new THREE.FogExp2(FOG_COLOR, 0.022);
 scene.background = new THREE.Color(FOG_COLOR);
 
-// Responsive camera: FOV 60 on mobile so frame wraps around text card, 48 on desktop
+// Pull camera back further (increase Z position) and widen FOV on mobile to show full top/bottom/side frames
 const camera = new THREE.PerspectiveCamera(
-  isMobile ? 60 : 48,
+  isMobile ? 70 : 48,
   window.innerWidth / window.innerHeight,
   0.1,
   200
 );
-camera.position.set(0, 0.2, 8.2);
-
+camera.position.set(0, 0.2, isMobile ? 9.8 : 8.2);
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
 const bloomPass = new UnrealBloomPass(
